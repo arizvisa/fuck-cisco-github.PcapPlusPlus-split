@@ -748,6 +748,10 @@ namespace pcpp
 #else
 		m_File = fopen(m_FileName.c_str(), "rb+");
 #endif
+		while (m_File == NULL) {
+			PCPP_LOG_ERROR("FUCKYOU: " << errno << " " << m_FileName);
+			m_File = fopen(m_FileName.c_str(), "r+");
+		}
 
 		if (m_File == nullptr)
 		{

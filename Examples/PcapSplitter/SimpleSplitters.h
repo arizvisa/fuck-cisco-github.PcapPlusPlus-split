@@ -140,7 +140,7 @@ public:
 	 * Re-implement Splitter's getFileName() method, clarifying which file was matched by the BPF
 	 * filter and which didn't
 	 */
-	std::string getFileName(pcpp::Packet& packet, const std::string& outputPcapBasePath, int fileNumber)
+	std::string getFileName(pcpp::Packet& packet, const std::string& outputPcapBasePath, int fileNumber, int)
 	{
 		if (fileNumber == 0)
 			return outputPcapBasePath + "match-bpf";

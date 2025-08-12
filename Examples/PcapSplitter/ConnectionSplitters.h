@@ -153,17 +153,17 @@ public:
 	/**
 	 * Re-implement Splitter's getFileName() method, this time with the IPs/Ports/protocol value
 	 */
-	std::string getFileName(pcpp::Packet& packet, const std::string& outputPcapBasePath, int fileNumber)
+	std::string getFileName(pcpp::Packet& packet, const std::string& outputPcapBasePath, int fileNumber, int packetCount)
 	{
 		std::ostringstream sstream;
 
 		// if it's not a TCP or UDP packet, put it in file #0
 		if (!packet.isPacketOfType(pcpp::TCP) && !packet.isPacketOfType(pcpp::UDP))
 		{
-			return Splitter::getFileName(packet, outputPcapBasePath, fileNumber);
+			return Splitter::getFileName(packet, outputPcapBasePath, fileNumber, packetCount);
 		}
 
-		sstream << "connection-";
+		sstream << "connection." << packetCount << "-";
 
 		if (packet.isPacketOfType(pcpp::TCP))
 		{

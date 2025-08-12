@@ -59,7 +59,7 @@ namespace pcpp
 	/// devices
 	class IFileReaderDevice : public IFileDevice
 	{
-	protected:
+	public:
 		uint32_t m_NumOfPacketsRead;
 		uint32_t m_NumOfPacketsNotParsed;
 

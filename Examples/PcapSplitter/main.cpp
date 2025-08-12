@@ -407,7 +407,7 @@ int main(int argc, char* argv[])
 		{
 			// get file name from the splitter and add the .pcap extension
 			std::string fileName =
-			    splitter->getFileName(parsedPacket, outputPcapFileName, fileNum) + outputFileExtenison;
+			    splitter->getFileName(parsedPacket, outputPcapFileName, fileNum, reader->m_NumOfPacketsRead) + outputFileExtenison;
 
 			// create a new IFileWriterDevice for this file
 			if (isReaderPcapng)
@@ -434,7 +434,7 @@ int main(int argc, char* argv[])
 		{
 			// get file name from the splitter and add the .pcap extension
 			std::string fileName =
-			    splitter->getFileName(parsedPacket, outputPcapFileName, fileNum) + outputFileExtenison;
+			    splitter->getFileName(parsedPacket, outputPcapFileName, fileNum, reader->m_NumOfPacketsRead) + outputFileExtenison;
 
 			// re-create the IFileWriterDevice object
 			if (isReaderPcapng)
@@ -463,10 +463,10 @@ int main(int argc, char* argv[])
 			if (outputFiles.find(fileId) != outputFiles.end())
 			{
 				// close the writer
-				outputFiles[fileId]->close();
+				//outputFiles[fileId]->close();
 
 				// free the writer memory and put null in the map record
-				outputFiles[fileId].reset();
+				//outputFiles[fileId].reset();
 			}
 		}
 

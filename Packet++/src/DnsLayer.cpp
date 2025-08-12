@@ -144,12 +144,14 @@ namespace pcpp
 
 		uint32_t numOfOtherResources = numOfQuestions + numOfAnswers + numOfAuthority + numOfAdditional;
 
+/*
 		if (numOfOtherResources > 300)
 		{
 			PCPP_LOG_ERROR(
 			    "DNS layer contains more than 300 resources, probably a bad packet. Skipping parsing DNS resources");
 			return;
 		}
+*/
 
 		for (uint32_t i = 0; i < numOfOtherResources; i++)
 		{
